@@ -7,7 +7,7 @@ app.get('/', function(request, response) {
     buf = new Buffer(255);
 //    response.send(buf.toString(
       response.send(
-	fs.readFile('./index.html', ecncoding)
+	fs.readFile('./index.html', encoding)
     );			       
 });
 
