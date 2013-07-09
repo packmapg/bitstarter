@@ -5,7 +5,7 @@ var fs = require('fs');
 app.get('/', function(request, response) {
 //  response.send('Hello World 2!');
     //buf = new Buffer(255);
-    buf = new Buffer(fs.readFile('./index.html'));
+    buf = new Buffer(fs.readFile('./index.html','utf-8');
     response.send(buf.toString());		       
 });
 
