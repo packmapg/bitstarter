@@ -57,7 +57,6 @@ var clone = function(fn) {
   var checkHtmlFile = function(outfile, chkfile) {
      $ = cheerioHtmlFile(outfile);
     var checks = loadChecks(chkfile).sort();
-    console.log("Here: " + checks); 
     var out = {};
     for(var ii in checks) {
 	var present = $(checks[ii]).length > 0;
@@ -67,10 +66,7 @@ var clone = function(fn) {
 };
 
 var buildfn = function(ofile, chkfile){
-console.log(chkfile);
-console.log(ofile); 
      var grade = function(result, response){
-       console.log("Here2");   
        if (result instanceof Error) {
 		 console.error('Error: ' + util.format(response.message));
 	} else {
@@ -96,7 +92,6 @@ if(require.main == module) {
 	var checkJson = rest.get(program.url).on('complete', grade);
     } else {
        var checkJson = checkHtmlFile(program.file, program.checks);
-  //   console.log(checkJson);
     var outJson = JSON.stringify(checkJson, null, 4);
     console.log(outJson);  
     }   	
